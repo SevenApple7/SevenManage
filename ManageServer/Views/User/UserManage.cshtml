@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    #table td {
+        line-height: 50px;
+        text-align: center;
+    }
+
+    #table th {
+        text-align: center;
+    }
+</style>
+
+<table class="table table-hover" id="table"></table>
+
+<script>
+    $(function () {
+        OrderList();
+    });
+    //http://localhost:14968/order/ordermanage
+    var Ptable_action = "@Url.Action("UserList", "user")";
+    function OrderList() {
+        $.ajax({
+            type: "GET",
+            url: Ptable_action,
+            data: { State: "Enable", Datetime: ""},
+            dataType: "json",
+            success: function (data) {
+                $("#table").append(data.message);
+            }
+        });
+    }
+</script>

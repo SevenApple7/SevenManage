@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .col-md-3 {
+        margin-bottom: 30px;
+    }
+</style>
+<div class="row">
+
+    @*<div class="col-sm-10 col-md-3"><a href="../../order/ordermanage" class="thumbnail"><img src="../../Content/Images/box.jpg"><div class="caption" style="text-align:center"><h3>测试1</h3></div></a></div>
+
+    <div class="col-sm-10 col-md-3">
+        <a href="../../Product/ProductManage" class="thumbnail">
+            <img src="../../Content/Images/box.jpg" alt="通用的占位符缩略图">
+            <div class="caption" style="text-align:center">
+                <h3>测试2</h3>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-10 col-md-3">
+        <a href="../../User/UserManage" class="thumbnail">
+            <img src="../../Content/Images/box.jpg" alt="通用的占位符缩略图">
+            <div class="caption" style="text-align:center">
+                <h3>测试3</h3>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-10 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="../../Content/Images/box.jpg" alt="通用的占位符缩略图">
+            <div class="caption" style="text-align:center">
+                <h3>缩略图标签</h3>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-10 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="../../Content/Images/box.jpg" alt="通用的占位符缩略图">
+            <div class="caption" style="text-align:center">
+                <h3>缩略图标签</h3>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-10 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="../../Content/Images/box.jpg" alt="通用的占位符缩略图">
+            <div class="caption" style="text-align:center">
+                <h3>缩略图标签</h3>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-10 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="../../Content/Images/box.jpg" alt="通用的占位符缩略图">
+            <div class="caption" style="text-align:center">
+                <h3>缩略图标签</h3>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-10 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="../../Content/Images/box.jpg" alt="通用的占位符缩略图">
+            <div class="caption" style="text-align:center">
+                <h3>缩略图标签</h3>
+            </div>
+        </a>
+    </div>*@
+
+</div>
+
+<script>
+    $(function () {
+        Navlist();
+    });
+    var Ptable_action = "@Url.Action("Navlist", "Home")";
+    function Navlist() {
+        $.ajax({
+            type: "GET",
+            url: Ptable_action,
+            data: { State: "Enable", Datetime: ""},
+            dataType: "json",
+            success: function (data) {
+                $(".row").append(data.message);
+            }
+        });
+    }
+</script>

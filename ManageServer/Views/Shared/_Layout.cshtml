@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Bootstrap</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</head>
+<body style="margin:0;padding:0">
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">@Html.ActionLink("ManageServer", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("关于", "About", "Home")</li>
+                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container body-content">
+            @RenderBody()
+            @*<hr />
+            <footer>
+            <p>&copy; @DateTime.Now.Year - ASP.NET.MVC</p>
+        </footer>*@
+        </div>
+
+</body>
+</html>

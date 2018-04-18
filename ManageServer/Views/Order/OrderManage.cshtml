@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    #table td {
+        line-height: 50px;
+        text-align: center;
+    }
+
+    #table th {
+        text-align: center;
+    }
+    hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border: 0;
+        border-top: 2px solid #eee;
+    }
+</style>
+<hr />
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-info">
+        <input type="radio" name="options" id="option1"> 选项 1
+    </label>
+    <label class="btn btn-info">
+        <input type="radio" name="options" id="option2"> 选项 2
+    </label>
+    <label class="btn btn-info">
+        <input type="radio" name="options" id="option3"> 选项 3
+    </label>
+</div>
+<hr />
+<table class="table table-hover" id="table"></table><hr />
+
+<script>
+    $(function () {
+        OrderList();
+    });
+    //http://localhost:14968/order/ordermanage
+    var Ptable_action = "@Url.Action("OrderList", "Order")";
+    function OrderList() {
+        $.ajax({
+            type: "GET",
+            url: Ptable_action,
+            data: { State: "Enable", Datetime: ""},
+            dataType: "json",
+            success: function (data) {
+                $("#table").append(data.message);
+            }
+        });
+    }
+</script>
