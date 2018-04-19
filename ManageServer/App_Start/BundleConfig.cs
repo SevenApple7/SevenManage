@@ -26,6 +26,11 @@ namespace ManageServer
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/Content/bootstrap-fileinput").Include(
+                        "~/Content/bootstrap-fileinput/js/fileinput.min.js",
+                        "~/Content/bootstrap-fileinput/js/locales/zh.js"));
+            bundles.Add(new StyleBundle("~/Content/bootstrap-fileinput").Include(
+                        "~/Content/bootstrap-fileinput/css/fileinput.min.css"));
         }
     }
 }

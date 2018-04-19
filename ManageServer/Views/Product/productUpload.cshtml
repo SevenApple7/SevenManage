@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    #Ptable span {
+        width:160px;
+    }
+    #Ptable .form-control {
+        width: 300px;
+    }
+    #Ptable td {
+        line-height: 71px;
+        text-align: center;
+    }
+
+    #Ptable th {
+        text-align: center;
+    }
+</style>
+<form role="form">
+    <table class="table" id="Ptable">
+        <caption>商品上传</caption>
+        <tr>
+            <td>
+                <div class="input-group" style="margin-bottom:10px;">
+                    <span class="input-group-addon">商品名称</span>
+                    <input type="text" class="form-control" placeholder="请输入名称" style="height:34px;">
+                </div>
+            </td>
+            <td>
+                <div class="input-group" style="margin-bottom:10px;">
+                    <span class="input-group-addon">商品简介</span>
+                    <input type="text" class="form-control" placeholder="请输入名称" style="height:34px;">
+                </div>
+            </td>
+            <td rowspan="3">
+                <div class="col-sm-6 col-md-10">
+                    <div class="thumbnail">
+                        <img id="portrait" src="../../Content/Images/404.jpg" alt="通用的占位符缩略图">
+                        <div class="caption" style="text-align:center;">
+                            <p>请选择产品主图</p>
+                            <p>
+                                <input type="file" id="uploadfile" style="display:none" onchange="showPreview(this)" />
+                                <a class="btn btn-info" role="button" onclick="$('#uploadfile').click();">信息按钮</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group" style="margin-bottom:10px;">
+                    <span class="input-group-addon">商品价格</span>
+                    <input type="text" class="form-control" placeholder="请输入名称" style="height:34px;">
+                </div>
+            </td>
+            <td>
+                <div class="input-group" style="margin-bottom:10px;">
+                    <span class="input-group-addon">商品库存</span>
+                    <input type="text" class="form-control" placeholder="请输入名称" style="height:34px;">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group" style="margin-bottom:10px;">
+                    <span class="input-group-addon">商品单位重量(kg）</span>
+                    <input type="text" class="form-control" placeholder="请输入名称" style="height:34px;">
+                </div>
+            </td>
+            <td>
+                <div class="input-group" style="margin-bottom:10px;">
+                    <span class="input-group-addon">商品原产地</span>
+                    <input type="text" class="form-control" placeholder="请输入名称" style="height:34px;">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                @Html.Partial("~/Views/Shared/_WYSIWYG.cshtml")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:right;">
+                <button type="submit" class="btn btn-info">提交</button>
+            </td>
+        </tr>
+    </table>
+       
+    
+</form>
+
+<script type="text/javascript">
+    function showPreview(source) {
+        var file = source.files[0];
+        if (window.FileReader) {
+            var fr = new FileReader();
+            var portrait = $('#portrait');
+            fr.onloadend = function (e) {
+                portrait.src = e.target.result;
+            };
+            fr.readAsDataURL(file);
+            portrait.style.display = 'block';
+        }
+    }
+</script> 

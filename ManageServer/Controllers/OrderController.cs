@@ -28,7 +28,7 @@ namespace ManageServer.Controllers
                     string Amount = dr["Amount"].ToString();
                     string RefreshDate = dr["RefreshDate"].ToString();
                     string StateId = dr["StateId"].ToString().Trim() == "2" ? "未发货" : "已发货";
-                    string buttonhtml = dr["Stateid"].ToString().Trim() == "2" ? "<a href=\"#\" class=\"btn btn-default\" role=\"button\">去发货</a>" : "<a href=\"#\" class=\"btn btn-default\" role=\"button\">查看</a>";
+                    string buttonhtml = dr["Stateid"].ToString().Trim() == "2" ? "<button class=\"btn btn-info\"data-toggle=\"modal\" data-target=\"#myModal\">发货</button>" : "<button class=\"btn\"data-toggle=\"modal\" data-target=\"#myModal\">查看</button>";
                     tableStr += "<tr><td>" + OrderId + "</td>" +
                         "<td>" + Amount + "</td>" +
                         "<td>" + StateId + "</td>" +

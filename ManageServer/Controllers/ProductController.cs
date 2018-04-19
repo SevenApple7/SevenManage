@@ -15,7 +15,7 @@ namespace ManageServer.Controllers
         {
             return View();
         }
-        public ActionResult productPush()
+        public ActionResult productUpload()
         {
             return View();
         }
